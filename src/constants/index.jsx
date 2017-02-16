@@ -1,8 +1,64 @@
-export const bodyData = [
+export const basicData = [
   ['姓名', '柳伟男'],
   ['性别', '男'],
-  ['工作意向', '前端react.js开发']
+  ['籍贯', '浙江上虞'],
+  ['学历', '硕士'],
+  ['工作', '前端react.js开发'],
+
 ];
+
+export const eduData = [
+  ['浙江工商大学'],
+  ['计算机硕士、数学本科'],
+  ['校优秀毕业生'],
+  ['国家励志奖学金'],
+  ['省数学竞赛'],
+];
+
+export const expData = [
+	['校青志干事', '学生工作'],
+	['暑期社会实践', '学生工作'],
+	['知乎博客撰写', '业余'],
+	['恒天内部系统开发', '全职'],
+	['道富前端react.js开发', '全职'],
+];
+
+export const interestData = [
+	['日语、法语', '语言'],
+	['爬山、羽毛球', '锻炼'],
+	['github小项目', '编程'],
+	['听歌看电影', '文艺'],
+	['程序员的生活指南', '博客'],
+];
+
+export const squareData = [
+  {
+    id: 1,
+    title: 'Basic info',
+    color: '#FFCDD2',
+    data: basicData
+  },
+  {
+    id: 2,
+    title: 'Education',
+    color: '#BBDEFB',
+    data: eduData
+  },
+  {
+    id: 3,
+    title: 'Experience',
+    color: '#F0F4C3',
+    data: expData
+  },
+  {
+    id: 4,
+    title: 'Interest',
+    color: '#FFF9C4',
+    data: interestData
+  }
+];
+
+
 
 export const listData = [
   {

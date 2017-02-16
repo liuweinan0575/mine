@@ -2,8 +2,8 @@ import React from 'react';
 
 const Cell = ({h}) => typeof h === 'number'?<td >{h}</td>:<td className="mdl-data-table__cell--non-numeric">{h}</td>
 
-const Table = ({header, body}) =>
-<table className="mdl-data-table mdl-js-data-table mdl-data-table" style={{width: '100%'}}>
+const Table = ({header, body, style = {}}) =>
+<table className="mdl-data-table mdl-js-data-table mdl-data-table" style={{...style, width: '100%'}}>
   { header && <thead><th>
       { header.map((h, i)=><Cell key ={i} h={h} />) }
       </th>

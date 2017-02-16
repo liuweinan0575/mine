@@ -1,7 +1,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import { Card, Table, Square, List } from '../components';
-import { bodyData, listData } from '../constants';
+import { squareData, listData } from '../constants';
 
 class HomeView extends Component {
 
@@ -56,6 +56,16 @@ class HomeView extends Component {
     window.open(url,'_blank');
   }
 
+  getFourSquare() {
+    const { clickedSquare } = this.state;
+    console.log('getFourSquare', clickedSquare);
+    return squareData.map((square, i) => {
+      const { id, title, color, data } = square;
+      console.log('getFourSquare', data);
+      return <Square key={i} width={clickedSquare===id?'100%':(!clickedSquare?"50%":'0%')} backgroundColor={color} onClick={()=>this.onSquareClick(id)}>{clickedSquare===id?<Table body={data} style={{backgroundColor: 'transparent'}}/>:<div style={{textAlign: 'center', paddingTop: '40%', color: '#b3b3b3'}}>{title}</div>}</Square>
+
+    })
+  }
   // <Table body={bodyData} />
   render() {
     const { clickedSquare, isDetail, blog, blogDetail } = this.state;
@@ -106,10 +116,7 @@ class HomeView extends Component {
             </div>
 
             <div style={{bottom: 0, position: 'absolute', width: '100%'}}>
-              <Square width={clickedSquare===1?'100%':(!clickedSquare?"50%":'0%')} backgroundColor='#FFCDD2' onClick={()=>this.onSquareClick(1)}><div style={{textAlign: 'center', paddingTop: '40%'}}>Basic info</div></Square>
-              <Square width={clickedSquare===2?'100%':(!clickedSquare?"50%":'0%')} backgroundColor="#BBDEFB" onClick={()=>this.onSquareClick(2)}><div style={{textAlign: 'center', paddingTop: '40%'}}>Education</div></Square>
-              <Square width={clickedSquare===3?'100%':(!clickedSquare?"50%":'0%')} backgroundColor='#F0F4C3' onClick={()=>this.onSquareClick(3)}><div style={{textAlign: 'center', paddingTop: '40%'}}>Experience</div></Square>
-              <Square width={clickedSquare===4?'100%':(!clickedSquare?"50%":'0%')} backgroundColor='#FFF9C4' onClick={()=>this.onSquareClick(4)}><div style={{textAlign: 'center', paddingTop: '40%'}}>Honor</div></Square>
+              {this.getFourSquare()}
             </div>
             <div className="mdl-card__menu">
               <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
